@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* @mixin aligin-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+body {
+  font-family: "Franklin Gothic heavy";
+  font-size: 4rem;
+  color: white;
+
+  .parallax_wrapper {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 300px;
+    .intro_div {
+      height: 100vh;
+      background-color: tomato;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .outro_div {
+      height: 100vh;
+      background-color: grey;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .parallax_group {
+      position: relative;
+      height: 100vh;
+      transform-style: preserve-3d;
+
+      .parallax_layer {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .base_layer {
+        /* scale cal= 1+((Z value=-300 * -1)/perspective=300) */
+        transform: translateZ(-300px) scale(2);
+      }
+      .mid_layer {
+        transform: translateZ(0);
+      }
+      .top_layer {
+        transform: translateZ(110px) scale(0.63);
+      }
+    }
+    #intro {
+      z-index: 0;
+    }
+    #group_1 {
+      z-index: -1;
+    }
+    #group_1 > .base_layer {
+      background-color: crimson;
+      z-index: 0;
+    }
+    #group_2 > .mid_layer {
+      background-color: green;
+    }
+  }
+}
